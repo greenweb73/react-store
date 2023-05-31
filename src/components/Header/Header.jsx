@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {ROUTES} from "../../utils/routes";
 
 import styles from "../../styles/Header.module.css"
-import LOGO from "../../images/logo.svg"
+//import LOGO from "../../images/logo.svg"
 import AVATAR from "../../images/avatar.jpg"
 import {loginUser, toggleForm} from "../../features/user/userSlice";
 import {useGetProductsQuery} from "../../features/Api/apiSlice";
@@ -22,10 +22,12 @@ const Header = () => {
 
     const getQantityInCart = () => cart.length
 
-    console.log(data)
+    //console.log(data)
 
     useEffect(() => {
+       // eslint-disable-next-line
        dispatch(loginUser({email: '', password: ''}));
+       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
