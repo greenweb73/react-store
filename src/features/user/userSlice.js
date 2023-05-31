@@ -33,17 +33,15 @@ export const loginUser = createAsyncThunk(
         try {
 
             const cookies = document.cookie.split('; ');
-            let accessToken, refreshToken;
+            let accessToken;
 
             for (let cookie of cookies) {
                 const [name, value] = cookie.split('=');
                 if (name === 'accessToken') {
                     accessToken = value;
-                } else if (name === 'refreshToken') {
-                    refreshToken = value;
                 }
             }
-            //console.log('accessToken', accessToken)
+
             if (accessToken === undefined) {
                 const res = await axios.post(`${BASE_URL}/auth/login`, payload);
 
